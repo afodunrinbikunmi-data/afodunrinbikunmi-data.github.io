@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akinkunmi Afodunrinbi — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#161616;--border:#1e1e1e;--border2:#2a2a2a;--text:#e8e8e8;--muted:#666666;--muted2:#444444;--accent:#c8a96e;--accent2:#a08040;--accent-dim:rgba(200,169,110,0.08);--green:#4ade80;--white:#ffffff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:0.35}
+.ambient{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,0.04) 0%,transparent 70%);pointer-events:none;top:-200px;right:-200px;z-index:0}
+.ambient2{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,0.03) 0%,transparent 70%);pointer-events:none;bottom:10%;left:-100px;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:12px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.8px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+section{position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 60px}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;border-bottom:1px solid var(--border)}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
+.hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.hero-label::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1.05;color:var(--white);letter-spacing:-2px;margin-bottom:8px}
+.hero-name span{color:var(--accent)}
+.hero-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:500;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+.hero-bio{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:480px}
+.hero-bio strong{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--accent);color:#0a0a0a;font-size:13px;font-weight:500;text-decoration:none;transition:all 0.2s}
+.btn-primary:hover{background:#d4b578;transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:transparent;color:var(--accent);font-size:13px;font-weight:500;text-decoration:none;border:1px solid var(--accent2);transition:all 0.2s}
+.btn-outline:hover{background:var(--accent-dim);transform:translateY(-1px)}
+.social-strip{display:flex;gap:20px;padding-top:28px;border-top:1px solid var(--border)}
+.social-link{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;font-family:'JetBrains Mono',monospace}
+.social-link:hover{color:var(--accent)}
+.hero-right{display:flex;flex-direction:column;gap:2px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);padding:22px 26px;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.2s}
+.stat-card:hover{border-color:var(--accent2)}
+.stat-number{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;color:var(--accent);line-height:1}
+.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.stat-icon{font-size:24px;opacity:0.25}
+.available-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--green);letter-spacing:1px;margin-bottom:24px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.section-header{padding:90px 0 52px}
+.section-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--white);letter-spacing:-1.5px;line-height:1.1}
+.section-title span{color:var(--accent)}
+#skills{padding-bottom:90px;border-bottom:1px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:44px}
+.skill-group{background:var(--bg2);border:1px solid var(--border);padding:26px;transition:border-color 0.2s}
+.skill-group:hover{border-color:var(--accent2)}
+.skill-group-title{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skill-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);transition:color 0.2s}
+.skill-item:last-child{border-bottom:none}
+.skill-item:hover{color:var(--text)}
+.skill-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;opacity:0.7}
+#projects{padding-bottom:90px;border-bottom:1px solid var(--border)}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:44px}
+.project-card{background:var(--bg2);border:1px solid var(--border);padding:32px;transition:all 0.25s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card:hover{border-color:var(--border2);background:var(--bg3)}
+.project-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.project-number{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:2px;margin-bottom:14px}
+.project-badge{display:inline-block;padding:3px 10px;background:var(--accent-dim);border:1px solid var(--accent2);font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.project-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--white);letter-spacing:-0.5px;line-height:1.2;margin-bottom:10px}
+.project-desc{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.project-insight{font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace;padding:9px 12px;background:var(--accent-dim);border-left:2px solid var(--accent);margin-bottom:20px;line-height:1.5}
+.project-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.tag{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);padding:3px 9px;border:1px solid var(--border2);letter-spacing:0.5px;text-transform:uppercase}
+.project-links{display:flex;gap:10px}
+.project-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);text-decoration:none;letter-spacing:0.5px;padding:7px 12px;border:1px solid var(--border2);transition:all 0.2s}
+.project-link:hover{color:var(--accent);border-color:var(--accent2);background:var(--accent-dim)}
+.project-link.primary{color:var(--accent);border-color:var(--accent2)}
+#experience{padding-bottom:90px;border-bottom:1px solid var(--border)}
+.exp-list{margin-top:44px;display:flex;flex-direction:column;gap:2px}
+.exp-card{background:var(--bg2);border:1px solid var(--border);padding:32px;display:grid;grid-template-columns:1fr auto;gap:40px;transition:border-color 0.2s}
+.exp-card:hover{border-color:var(--accent2)}
+.exp-org{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.exp-role{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--white);letter-spacing:-0.5px;margin-bottom:14px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-bullets li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--accent2)}
+.exp-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted2);letter-spacing:1px;white-space:nowrap;text-align:right;padding-top:2px}
+#certifications{padding-bottom:90px;border-bottom:1px solid var(--border)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px}
+.cert-card{background:var(--bg2);border:1px solid var(--border);padding:26px;transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--accent2)}
+.cert-icon{font-size:22px;margin-bottom:14px}
+.cert-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.3}
+.cert-issuer{font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+#contact{padding-bottom:90px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:44px}
+.contact-card{background:var(--bg2);border:1px solid var(--border);padding:28px;display:flex;align-items:center;gap:18px;text-decoration:none;transition:all 0.2s}
+.contact-card:hover{border-color:var(--accent2);background:var(--bg3)}
+.contact-icon{font-size:18px;opacity:0.5;flex-shrink:0}
+.contact-label{font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted2);text-transform:uppercase;letter-spacing:2px;margin-bottom:3px}
+.contact-value{font-size:13px;color:var(--text)}
+footer{border-top:1px solid var(--border);padding:28px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--accent)}
+.footer-copy{font-size:11px;color:var(--muted2);font-family:'JetBrains Mono',monospace}
+@media(max-width:768px){nav{padding:16px 24px}.nav-links{display:none}.container{padding:0 24px}.hero-inner{grid-template-columns:1fr;gap:40px}.skills-grid{grid-template-columns:1fr 1fr}.projects-grid{grid-template-columns:1fr}.project-card.featured{grid-column:span 1;grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.cert-grid{grid-template-columns:1fr}.exp-card{grid-template-columns:1fr}footer{flex-direction:column;gap:10px;text-align:center;padding:20px}}
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="ambient2"></div>
+
+<nav>
+  <a href="#hero" class="nav-logo">AA.</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="available-badge"><span class="status-dot"></span>Open to Data Analyst Roles</div>
+        <div class="hero-label">Portfolio — 2025</div>
+        <h1 class="hero-name">Akinkunmi<br><span>Afodunrinbi</span></h1>
+        <div class="hero-title">Data Analyst &amp; Machine Learning</div>
+        <p class="hero-bio">I turn raw data into business decisions. With expertise in <strong>SQL, Python, Excel, and Power BI</strong>, I build end-to-end analytical pipelines — from data cleaning and EDA to machine learning models and interactive dashboards. ALX Certified VA and Microsoft Certified Project Manager. I am committed to continuous learning, building real-world projects, and developing solutions that create measurable value.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View Projects →</a>
+          <a href="https://drive.google.com/drive/u/0/folders/1ESakrAp9DUSjdqVzzXbL9gB7qZuWxFNO" target="_blank" class="btn-outline">VA Portfolio ↗</a>
+        </div>
+        <div class="social-strip">
+          <a href="https://www.linkedin.com/in/akinkunmiafod/" target="_blank" class="social-link">↗ LinkedIn</a>
+          <a href="https://github.com/afodunrinbikunmi-data" target="_blank" class="social-link">↗ GitHub</a>
+          <a href="https://medium.com/@afodunrinbikunmi" target="_blank" class="social-link">↗ Medium</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-card"><div><div class="stat-number">5+</div><div class="stat-label">Portfolio Projects</div></div><div class="stat-icon">📊</div></div>
+        <div class="stat-card"><div><div class="stat-number">4</div><div class="stat-label">Analytical Pipelines</div></div><div class="stat-icon">⚙️</div></div>
+        <div class="stat-card"><div><div class="stat-number">3</div><div class="stat-label">ML Models Built</div></div><div class="stat-icon">🤖</div></div>
+        <div class="stat-card"><div><div class="stat-number">7+</div><div class="stat-label">Medium Articles</div></div><div class="stat-icon">✍️</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Technical Stack</div>
+      <h2 class="section-title">Tools &amp; <span>Skills</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Analysis</div>
+        <div class="skill-item"><span class="skill-dot"></span>Microsoft Excel</div>
+        <div class="skill-item"><span class="skill-dot"></span>Power Query</div>
+        <div class="skill-item"><span class="skill-dot"></span>PivotTables</div>
+        <div class="skill-item"><span class="skill-dot"></span>Statistical Analysis</div>
+        <div class="skill-item"><span class="skill-dot"></span>Feature Engineering</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-item"><span class="skill-dot"></span>Python (pandas)</div>
+        <div class="skill-item"><span class="skill-dot"></span>NumPy</div>
+        <div class="skill-item"><span class="skill-dot"></span>Matplotlib / Seaborn</div>
+        <div class="skill-item"><span class="skill-dot"></span>Scikit-learn</div>
+        <div class="skill-item"><span class="skill-dot"></span>SQL / MySQL</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Visualisation</div>
+        <div class="skill-item"><span class="skill-dot"></span>Power BI</div>
+        <div class="skill-item"><span class="skill-dot"></span>DAX Measures</div>
+        <div class="skill-item"><span class="skill-dot"></span>Data Modelling</div>
+        <div class="skill-item"><span class="skill-dot"></span>Dashboard Design</div>
+        <div class="skill-item"><span class="skill-dot"></span>KPI Reporting</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Machine Learning</div>
+        <div class="skill-item"><span class="skill-dot"></span>Logistic Regression</div>
+        <div class="skill-item"><span class="skill-dot"></span>Decision Tree</div>
+        <div class="skill-item"><span class="skill-dot"></span>Random Forest</div>
+        <div class="skill-item"><span class="skill-dot"></span>Churn Prediction</div>
+        <div class="skill-item"><span class="skill-dot"></span>Model Evaluation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Work</div>
+      <h2 class="section-title">Portfolio <span>Projects</span></h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card featured">
+        <div>
+          <div class="project-number">01 — Featured</div>
+          <div class="project-badge">SQL → Python → Power BI</div>
+          <h3 class="project-title">MTN Nigeria Customer Churn Analysis</h3>
+          <p class="project-desc">End-to-end churn investigation across 974 MTN Nigeria customers in Q1 2025. SQL for baseline queries, Python for EDA and feature engineering, Power BI for a 4-page interactive dashboard covering customer overview, churn analysis, revenue performance, and risk intelligence.</p>
+          <div class="project-insight">₦58M lost to churn — ₦83M more at risk from 493 medium-risk active customers</div>
+          <div class="project-tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Churn</span><span class="tag">Nigeria</span></div>
+          <div class="project-links">
+            <a href="https://medium.com/@afodunrinbikunmi/i-analyzed-mtn-nigerias-customer-data-and-found-that-83-million-more-is-about-to-walk-out-the-0b20c77bc96d" target="_blank" class="project-link primary">↗ Read Article</a>
+            <a href="https://github.com/afodunrinbikunmi-data/MTN_Nigeria_Customer_Churn_Analysis" target="_blank" class="project-link">⌥ GitHub</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-number">02 — Machine Learning</div>
+          <div class="project-badge">Python · Scikit-Learn</div>
+          <h3 class="project-title">MTN Nigeria Churn Prediction Model</h3>
+          <p class="project-desc">Standalone ML project training three classification models — Logistic Regression, Decision Tree, and Random Forest — to predict which customers are most likely to churn. Full model comparison with confusion matrix analysis and feature importance evaluation.</p>
+          <div class="project-insight">Random Forest: 72.82% accuracy, 50% churn precision — best performing model of three</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Random Forest</span><span class="tag">Classification</span><span class="tag">ML</span></div>
+          <div class="project-links">
+            <a href="https://medium.com/@afodunrinbikunmi/i-built-three-machine-learning-models-to-predict-mtn-nigeria-customer-churn-and-the-results-taught-b19b637e3a69" target="_blank" class="project-link primary">↗ Read Article</a>
+            <a href="https://github.com/afodunrinbikunmi-data/mtn_nigeria_churn_prediction_model" target="_blank" class="project-link">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">03</div>
+        <div class="project-badge">Excel → Power BI</div>
+        <h3 class="project-title">Global Superstore Sales Analysis</h3>
+        <p class="project-desc">Profitability analysis of 51,290 orders across 7 global markets and 4 years. Identified loss-making products, failing markets, and seasonal patterns using a relational 3-table data model and a 4-page Power BI dashboard.</p>
+        <div class="project-insight">52% of all orders unprofitable — Tables sub-category: -24.2% margin on $757K in sales</div>
+        <div class="project-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Retail</span><span class="tag">Global</span></div>
+        <div class="project-links">
+          <a href="https://github.com/afodunrinbikunmi-data/superstore-sales-analysis" target="_blank" class="project-link primary">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">04</div>
+        <div class="project-badge">Excel → Power BI</div>
+        <h3 class="project-title">Walmart Retail Sales Analysis</h3>
+        <p class="project-desc">Weekly sales analysis across 45 Walmart stores over 3 years. Investigated the impact of holidays, seasons, fuel prices, unemployment, and temperature on consumer spending behaviour using dual-axis Power BI visuals.</p>
+        <div class="project-insight">Fuel prices — not holidays — show the strongest correlation with weekly sales performance</div>
+        <div class="project-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Retail</span><span class="tag">External Factors</span></div>
+        <div class="project-links">
+          <a href="https://medium.com/@afodunrinbikunmi/i-analysed-6-436-walmart-sales-records-and-found-that-fuel-prices-matter-more-than-holidays-1ce26b5107a1" target="_blank" class="project-link primary">↗ Read Article</a>
+          <a href="https://github.com/afodunrinbikunmi-data/Walmart_Retail_Sales_Performance_Analysis" target="_blank" class="project-link">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">05</div>
+        <div class="project-badge">Excel → Python → Power BI</div>
+        <h3 class="project-title">Water Pollution Disease Analysis</h3>
+        <p class="project-desc">Global study of water pollution and waterborne disease burden across 10 countries spanning 26 years. Excel feature engineering combined with Python EDA to analyse disease trends, pollution patterns, and public health risk classification.</p>
+        <div class="project-insight">100% of countries classified High Risk — no improvement trend over 25 years of monitoring</div>
+        <div class="project-tags"><span class="tag">Excel</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Public Health</span></div>
+        <div class="project-links">
+          <a href="https://medium.com/@afodunrinbikunmi/i-analysed-25-years-of-global-water-pollution-data-and-found-that-every-single-country-is-a-health-1b860a158f82" target="_blank" class="project-link primary">↗ Read Article</a>
+          <a href="https://github.com/afodunrinbikunmi-data/Water_Pollution_Disease_Analysis" target="_blank" class="project-link">⌥ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-number">06</div>
+        <div class="project-badge">Excel → Power BI</div>
+        <h3 class="project-title">Cost of International Education</h3>
+        <p class="project-desc">Cost analysis of 622 universities across 71 countries revealing the true financial burden of studying abroad. Identified the Tuition Trap — where low advertised fees mask significantly higher living costs that most students fail to plan for.</p>
+        <div class="project-insight">73% of study abroad cost is non-tuition — geography matters more than degree type or duration</div>
+        <div class="project-tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Education</span><span class="tag">Global</span></div>
+        <div class="project-links">
+          <a href="https://medium.com/@afodunrinbikunmi/international-education-cost-analysis-decoding-the-tuition-trap-and-geographic-cost-disparity-bbd74cb2ff9d" target="_blank" class="project-link primary">↗ Read Article</a>
+          <a href="https://github.com/afodunrinbikunmi-data/Cost_International_Education_Analysis" target="_blank" class="project-link">⌥ GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Background</div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card">
+        <div>
+          <div class="exp-org">Oneforma (UHRS) / Toloka</div>
+          <div class="exp-role">Data Quality Officer</div>
+          <ul class="exp-bullets">
+            <li>Performed text data review, labeling, and validation tasks based on strict project guidelines</li>
+            <li>Evaluated data entries for accuracy, relevance, and consistency, achieving approximately 98% quality scores consistently</li>
+            <li>Audited task outputs to identify errors and ensure compliance with predefined standards across multiple concurrent projects</li>
+          </ul>
+        </div>
+        <div class="exp-date">March 2024<br>— Present<br><br>Contract</div>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-org">International Livestock Research Institute (ILRI), Ibadan</div>
+          <div class="exp-role">Data &amp; Research Assistant (Intern)</div>
+          <ul class="exp-bullets">
+            <li>Reviewed, reconciled, and validated daily records ensuring data accuracy and consistency at a 98% rate</li>
+            <li>Digitised and organised transaction and inventory data using spreadsheets for structured reporting</li>
+            <li>Cross-checked entries to identify discrepancies and correct errors before submission to senior researchers</li>
+          </ul>
+        </div>
+        <div class="exp-date">Nov 2020<br>— Jan 2021<br><br>Internship</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Credentials</div>
+      <h2 class="section-title">Certifications &amp; <span>Training</span></h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">ALX Certified Virtual Assistant</div>
+        <div class="cert-issuer">ALX Africa</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <div class="cert-name">Microsoft Professional Certificate — Project Management</div>
+        <div class="cert-issuer">Microsoft</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div class="cert-name">Data Analysis Portfolio — 5 End-to-End Projects</div>
+        <div class="cert-issuer">Self-Directed · 2024–2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's <span>Connect</span></h2>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:afodunrinbikunmi@gmail.com" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div><div class="contact-label">Email</div><div class="contact-value">afodunrinbikunmi@gmail.com</div></div>
+      </a>
+      <a href="tel:+2347047225707" class="contact-card">
+        <div class="contact-icon">📱</div>
+        <div><div class="contact-label">Phone</div><div class="contact-value">+234 704 722 5707</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/akinkunmiafod/" target="_blank" class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-value">linkedin.com/in/akinkunmiafod</div></div>
+      </a>
+      <a href="https://github.com/afodunrinbikunmi-data" target="_blank" class="contact-card">
+        <div class="contact-icon">⌥</div>
+        <div><div class="contact-label">GitHub</div><div class="contact-value">afodunrinbikunmi-data</div></div>
+      </a>
+      <a href="https://medium.com/@afodunrinbikunmi" target="_blank" class="contact-card">
+        <div class="contact-icon">✍️</div>
+        <div><div class="contact-label">Medium</div><div class="contact-value">medium.com/@afodunrinbikunmi</div></div>
+      </a>
+      <a href="https://drive.google.com/drive/u/0/folders/1ESakrAp9DUSjdqVzzXbL9gB7qZuWxFNO" target="_blank" class="contact-card">
+        <div class="contact-icon">📁</div>
+        <div><div class="contact-label">Virtual Assistant Portfolio</div><div class="contact-value">Google Drive ↗</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Akinkunmi Afodunrinbi</div>
+  <div class="footer-copy">Data Analyst &amp; Machine Learning · 2025</div>
+</footer>
+
+</body>
+</html>
